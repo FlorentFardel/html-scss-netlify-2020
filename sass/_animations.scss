@@ -1,20 +1,37 @@
 @keyframes bunce {
   0% {
     transform: rotate(-45deg);
+    color: red;
   }
   10% {
     transform: rotate(-35deg);
+    color: green;
   }
   70% {
     transform: rotate(20deg);
+    color: greenyellow;
   }
   80% {
     transform: rotate(-10deg);
+    color: olivedrab;
   }
   90% {
     transform: rotate(5deg);
+    color: orange;
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@keyframes social-animation {
+  from {
+    transform: scale(1);
+  } 
+  50% {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1);
   }
 }

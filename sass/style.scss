@@ -26,20 +26,23 @@
 
 .picture {
   grid-area: picture;
-  background-color: var(--background);
-  padding: 6rem;
+  display: flex;
+  background: var(--background);
+  align-items: center;
+  justify-content: center;
   @include xs {
-    padding: 6rem;
+    padding-top: 6rem;
   }
   border-left: 1px solid var(--border);
   img {
     border-radius: 50%;
+    width: 20rem;
   }
 }
 header {
   grid-area: header;
   background: linear-gradient(to right, var(--primary), var(--light));
-  padding: 10rem 5rem;
+  padding: 5rem;
   @include xs {
     padding: 5rem 0rem;
   }
@@ -123,9 +126,15 @@ aside {
         font-size: 2rem;
         margin: 0 1rem;
       }
+    
     }
     .social-container {
+      animation: social-animation;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      text-shadow: 0.1rem 0.2rem  0.2rem var(--hint);
       display: flex;
+      flex: row nowrap;
       justify-content: start;
       @include sm {
         justify-content: space-around;
@@ -136,21 +145,30 @@ aside {
       transition: all 1s;
       cursor: pointer;
       &:hover {
+        animation: none;
+        text-shadow: none;
+        transform: scale(1.1);
         background: var(--border);
         i {
           color: var(--primary);
-          transform: scale(1, 0.5);
+          background: white;
           transform: rotate(360deg);
+          transition: all 0.5s;
         }
       }
-      i {
+      a {
+        display: flex;
         font-size: 2rem;
-        flex: 1 0 5rem;
+        align-items: center;
+      }
+      i {
+        font-size: 3rem;
+        flex: 0 1 5rem;
         margin-right: 1rem;
-        transition: all 1.5s;
+        padding: 0;
+        transition: all 0.01s;
       }
       p {
-        flex: auto;
         margin: 0;
       }
     }
@@ -205,8 +223,8 @@ footer {
   text-align: center;
   padding: 5rem;
   @include sm {
-        padding: 5rem 1.5rem;
-    }
+    padding: 5rem 1.5rem;
+  }
   background: var(--text);
   color: white;
   justify-content: center;
@@ -228,9 +246,9 @@ footer {
     font-size: 2rem;
     border-top-left-radius: 20%;
     border-bottom-left-radius: 20%;
-     @include sm {
-          padding: 1rem;
-      }
+    @include sm {
+      padding: 1rem;
+    }
   }
   input {
     border: 0;
@@ -238,8 +256,8 @@ footer {
     outline: 0;
     min-width: 40rem;
     @include sm {
-        min-width: 15rem;
-        padding: 1rem 0;
+      min-width: 15rem;
+      padding: 1rem 0;
     }
     padding: 1rem 2rem;
     &::placeholder {
@@ -256,13 +274,12 @@ footer {
       transition: all 0.2s;
     }
     .postfix {
-      background: linear-gradient(to right, var(--dark), var(--light));
+      background: linear-gradient(to right, var(--light), var(--dark));
       padding: 1rem 2rem;
       color: white;
       font-size: 2rem;
       border-top-right-radius: 20%;
       border-bottom-right-radius: 20%;
-     
     }
   }
 }
